@@ -34,8 +34,8 @@ public class ForumController {
 	}
 
 	@PutMapping("/forum/post/{postId}/like")
-	public Boolean addLike(@PathVariable Long postId) {
-		return forumService.addLike(postId);
+	public void addLike(@PathVariable Long postId) {
+		 forumService.addLike(postId);
 	}
 
 	@GetMapping("/forum/posts/author/{author}")

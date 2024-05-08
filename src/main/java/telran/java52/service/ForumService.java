@@ -12,7 +12,7 @@ public interface ForumService {
 
 	PostDto findPostById(Long postId);
 
-	Boolean addLike(Long postId); // returns Boolean or void??
+	void addLike(Long postId); 
 
 	List<PostDto> findPostsByAuthor(String author);
 
