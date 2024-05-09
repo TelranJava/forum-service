@@ -1,6 +1,7 @@
 package telran.java52.service;
 
 import java.util.List;
+import java.util.Set;
 
 import telran.java52.dto.PeriodDto;
 import telran.java52.dto.PostDto;
@@ -10,19 +11,19 @@ import telran.java52.dto.UpdPostDto;
 public interface ForumService {
 	PostDto addPost(String user, UpdPostDto post);
 
-	PostDto findPostById(Long postId);
+	PostDto findPostById(String postId);
 
-	void addLike(Long postId); 
+	void addLike(String postId);
 
-	List<PostDto> findPostsByAuthor(String author);
+	PostDto addComment(String postId, UpdCommentDto comment, String author);
 
-	PostDto addComment(Long postId, UpdCommentDto comment, String user);
+	PostDto deletePost(String postId);
 
-	PostDto deletePost(Long postId);
+	Iterable<PostDto> findPostsByAuthor(String author);
+	
+	Iterable<PostDto> findPostsByTags(List<String> tags);
 
-	List<PostDto> findPostsByTags(List<String> tags);
+	Iterable<PostDto> findPostsByPeriod(PeriodDto period);
 
-	List<PostDto> findPostsByPeriod(PeriodDto period);
-
-	PostDto updatePost(Long postId, UpdPostDto post);
+	PostDto updatePost(String postId, UpdPostDto post);
 }
